@@ -5,6 +5,7 @@ let path=require('path');
 const router=require('express').Router();
 const {v4:uuid}=require('uuid');
 const { GenreModel } = require('../mongoose/models/Genre');
+const { ArtistModel } = require('../mongoose/models/Artists');
 
 
 router.get('/api/tracks', async (req, res) => {
@@ -29,7 +30,7 @@ router.get('/api/tracks/artist', async (req, res) => {
         });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ isError: true, errorMessage: 'Server Error' });
+        res.json({ isError: true, Message: err.message });
     }
 });
 router.post('/api/tracks/artist', async (req, res) => {
