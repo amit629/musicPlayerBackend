@@ -1,7 +1,7 @@
 let express=require('express')
 let app=express();
 let cors=require('cors')
-
+const PORT=process.env.PORT || 5000;
 const { dbConnect } = require('./mongoose/connect');
 require('dotenv').config();
 
@@ -32,6 +32,6 @@ app.get('/',(req,res)=>{
 })
 
 
-app.listen(5000,(PORT)=>{
-    console.log(`server running on 5000`)
+app.listen(PORT,(err)=>{
+    console.log(`server running on ${PORT}`)
 })
